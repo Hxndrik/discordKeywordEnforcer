@@ -7,8 +7,8 @@ client = discord.Client()
 
 # Dictionary of channels (!! NEEDS TO BE 100% lowercase !!) and their corresponding keywords
 channel_keywords = {
-    "spaghetti": ["pasta", "sauce", "cheese"],
-    "chicken": ["rice", "fried", "flower"]
+    1065711308164571237: ["pasta", "sauce", "cheese"],
+    1065711265156177990: ["rice", "fried", "flower"]
 }
 
 
@@ -21,9 +21,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
     # check if message was sent in one of the specified channels
-    if message.channel.name.lower() in channel_keywords:
+    if message.channel.id in channel_keywords:
         # check if message includes all keywords for that channel
-        keywords = channel_keywords[message.channel.name.lower()]
+        keywords = channel_keywords[message.channel.id]
         if not all(word.lower() in message.content.lower()
                    for word in keywords):
             # delete the message if not all of the keywords are in the message
@@ -33,9 +33,9 @@ async def on_message(message):
 @client.event
 async def on_message_edit(before, after):
     # check if message was modified in one of the specified channels
-    if after.channel.name.lower() in channel_keywords:
+    if after.channel.id in channel_keywords:
         # check if message includes all keywords for that channel
-        keywords = channel_keywords[after.channel.name.lower()]
+        keywords = channel_keywords[after.channel.id]
         if not all(word.lower() in after.content.lower() for word in keywords):
             # delete the message if not all of the keywords are in the message
             await after.delete()
