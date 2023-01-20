@@ -5,7 +5,7 @@ from keep_alive import keep_alive
 
 client = discord.Client()
 
-# Dictionary of channels (!! NEEDS TO BE 100% lowercase !!) and their corresponding keywords
+# Dictionary of channel id's and their corresponding keywords
 channel_keywords = {
     1065711308164571237: ["pasta", "sauce", "cheese"],
     1065711265156177990: ["rice", "fried", "flower"]
