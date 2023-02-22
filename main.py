@@ -5,14 +5,14 @@ from keep_alive import keep_alive
 
 client = discord.Client()
 
-# Dictionary of channel id's and their corresponding keywords
+# Configure dictionary of channel id's and their corresponding keywords here
 channel_keywords = {
     1065711308164571237: ["pasta", "sauce", "cheese"],
     1065711265156177990: ["rice", "fried", "flower"]
 }
 
 
-# optional: logging in console (not on discord)
+# optional: logging in python console
 @client.event
 async def on_ready():
     print("Bot is ready!")
